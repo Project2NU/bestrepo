@@ -1,0 +1,53 @@
+[
+    {
+      "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "synopsis": "Set in the racially charged American South during the 1930s, this novel follows the story of young Scout Finch and her father, Atticus Finch, a lawyer who defends a black man falsely accused of raping a white woman. The book explores themes of racism, justice, and moral growth."
+    },
+    {
+      "title": "1984",
+      "author": "George Orwell",
+      "synopsis": "A dystopian classic, '1984' depicts a totalitarian regime where individuality is suppressed, and thoughtcrime is punishable. The story follows Winston Smith, who begins to question the oppressive regime and seeks to rebel against it."
+    },
+    {
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "synopsis": "Set in the Roaring Twenties, this novel tells the story of Jay Gatsby's extravagant parties and his unrequited love for Daisy Buchanan. Through the lens of narrator Nick Carraway, the book explores themes of wealth, ambition, and the American Dream."
+    },
+    {
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "synopsis": "A timeless romance, 'Pride and Prejudice' follows the headstrong Elizabeth Bennet and her complex relationship with the aloof Mr. Darcy. Set in early 19th-century England, the novel explores themes of class, manners, and love."
+    },
+    {
+      "title": "The Catcher in the Rye",
+      "author": "J.D. Salinger",
+      "synopsis": "Narrated by the iconic Holden Caulfield, this coming-of-age novel follows his adventures in New York City. Holden's narrative is marked by his unique voice, and the book explores themes of adolescence, alienation, and identity."
+    },
+    {
+      "title": "The Lord of the Rings",
+      "author": "J.R.R. Tolkien",
+      "synopsis": "A high-fantasy epic, 'The Lord of the Rings' follows the journey of Frodo Baggins and a diverse group of characters as they seek to destroy the One Ring and thwart the dark lord Sauron. The story is set in the richly imagined world of Middle-earth."
+    },
+    {
+      "title": "Brave New World",
+      "author": "Aldous Huxley",
+      "synopsis": "Set in a futuristic dystopia, this novel explores a society where technology and consumerism have led to conformity and a lack of individuality. The story follows Bernard Marx and his discovery of the dark secrets behind this seemingly utopian world."
+    },
+    {
+      "title": "The Alchemist",
+      "author": "Paulo Coelho",
+      "synopsis": "A philosophical novel, 'The Alchemist' tells the tale of Santiago, a shepherd boy who embarks on a journey to discover his personal legend. Along the way, he encounters spiritual lessons and discovers the importance of following one's dreams."
+    },
+    {
+      "title": "Gone with the Wind",
+      "author": "Margaret Mitchell",
+      "synopsis": "Set against the backdrop of the American Civil War and Reconstruction era, this epic novel follows the strong-willed Scarlett O'Hara and her tumultuous love affair with Rhett Butler. The story explores themes of love, loss, and survival."
+    },
+    {
+      "title": "The Handmaid's Tale",
+      "author": "Margaret Atwood",
+      "synopsis": "In a dystopian theocratic society, women's rights have been stripped away, and fertile women are forced into the role of 'handmaids' to bear children for the ruling class. The story follows one such handmaid, Offred, as she navigates a world of oppression and rebellion."
+    }
+  ]
+  
