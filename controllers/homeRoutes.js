@@ -5,6 +5,7 @@ const withAuth = require('../utils/auth');
 //all gets here
 //gets that query the db and sends that data to specific handlebar pages
 router.get('/', withAuth, async (req, res) => {
+  console.log("made in homeroutes");
   try {
     const userData = await User.findAll({
       attributes: { exclude: ['password'] },
