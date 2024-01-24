@@ -1,10 +1,24 @@
-const { Model, DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const bcrypt = require("bcrypt");
+const sequelize = require("../config/connection");
 
 class User extends Model {
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
+  }
+
+  static associate(models) {
+    // A User has many Posts
+    this.hasMany(models.Post, {
+      foreignKey: "userId",
+      onDelete: "CASCADE", // define how related data should be handled when a user is deleted
+    });
+
+    // A User has many Comments
+    this.hasMany(models.Comment, {
+      foreignKey: "userId",
+      onDelete: "CASCADE",
+    });
   }
 }
 
@@ -47,7 +61,7 @@ User.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'user',
+    modelName: "user",
   }
 );
 
