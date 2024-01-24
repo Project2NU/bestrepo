@@ -6,7 +6,11 @@
 <header>
   <nav class="navbar bg-body-tertiary">
   <div class="container-fluid">
-    <div style="float:right"><button>LOGIN</button></div>
+    <div style="float:right">
+     <a href="/login"><button>LOGIN</button></a>
+  <br>
+    <a href="/dashboard"><button>DASHBOARD</button></a>
+      </div>
     <form class="d-flex" role="search">
       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success" type="submit">Search</button>
@@ -18,7 +22,7 @@
   <center>
   <h1> This is our Handlebars Homepage...</h1>
 
-    <div style="float:right"><button>logout</button></div>
+    <div style="float:right"><button id="logout">logout</button></div>
 
   <h1>Search Box</h1>
     <div>
@@ -56,5 +60,7 @@
     </div>
   </footer>
 </header>
+
+<script src="/js/logout.js"></script>
 
 
