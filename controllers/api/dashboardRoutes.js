@@ -2,7 +2,7 @@
 const express = require("express");
 const router = express.Router();
 // console.log("Dashboard router loaded");
-const { User, Post, Comment } = require("../../models");
+const { User, Post, Comment, Review } = require("../../models");
 
 router.get("/", async (req, res) => {
   console.log("Accessing  route");
@@ -139,6 +139,38 @@ router.get("/:id", async (req, res) => {
     }
 
     res.json(post);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get("/", async (req, res) => {
+  if (!req.session.logged_in) {
+    res.redirect("/login");
+    return;
+  }
+
+  try {
+    const reviewsData = await Review.findAll({
+      where: {
+        user_id: req.session.userId,
+      },
+    });
+
+    const reviews = reviewsData.map((review) => review.get({ plain: true }));
+
+    const userData = await User.findByPk(req.session.userId, {
+      include: [{ model: Post }],
+    });
+
+    const user = userData.get({ plain: true });
+
+    res.render("dashboard", {
+      posts: user.Posts,
+      reviews: reviews, // Add reviews to the data sent to the template
+      logged_in: req.session.logged_in,
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
