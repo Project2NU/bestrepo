@@ -29,20 +29,19 @@ app.use(session(sess));
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 // Set handlebar routes
-app.get('/', function (req, res) {
-  res.render('homepage');
-  res.render('login');
-  res.render('about');
-});
+// app.get('/', function (req, res) {
+//   res.render('homepage');
+//   res.render('login');
+//   res.render('about');
+// });
 // Set static folder
-app.use(express.static('public'));
+app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use('/', routes);
+app.use("/", routes);
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log("Now listening"));
 });
-
