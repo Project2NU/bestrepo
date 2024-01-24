@@ -18,7 +18,7 @@ router.get("/:bookId", async (req, res) => {
 router.get("/", async (req, res) => {
   let allBook = await Book.findAll();
   //delete text from below
-  res.send(`you are getting all books ${JSON.stringify(allBook)}`);
+  res.send(allBook);
 });
 //fun
 
