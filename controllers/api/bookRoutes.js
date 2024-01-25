@@ -45,4 +45,15 @@ router.delete("/:bookId", async (req, res) => {
   res.send(`you deleted a book ${req.params.bookId}`);
 });
 
+//render for book views
+//books.hb id creation tbd --> just from model/book.js
+//book.hb id creation tbd --> just from model/book.js
+//render for select book by id
+
+//within books.hb or book.hb you want to be able to also render reviews. when i chose a book, i can also see the book reviews 
+
+//how much more difficult is it to add the beer if we can do it
+
+
+
 module.exports = router;
