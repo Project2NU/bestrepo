@@ -5,17 +5,9 @@ const withAuth = require("../utils/auth");
 //all gets here
 //gets that query the db and sends that data to specific handlebar pages
 router.get("/", async (req, res) => {
-  console.log("made in homeroutes");
+  console.log("made in homeroutes", req.session.logged_in);
   try {
-    const userData = await User.findAll({
-      attributes: { exclude: ["password"] },
-      order: [["name", "ASC"]],
-    });
-
-    const users = userData.map((project) => project.get({ plain: true }));
-
-    res.render("homepage.handlebars", {
-      users,
+      res.render("homepage.handlebars", {
       logged_in: req.session.logged_in,
     });
   } catch (err) {
