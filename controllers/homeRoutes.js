@@ -85,4 +85,9 @@ router.get("/dashboard", withAuth, async (req, res) => {
   }
 });
 
+//render for book views
+//render for select book by id
+
+
+
 module.exports = router;
