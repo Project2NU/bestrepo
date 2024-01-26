@@ -2,16 +2,19 @@ const router = require('express').Router();
 const { User } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', withAuth, async (req, res) => {
+//all gets here
+//gets that query the db and sends that data to specific handlebar pages
+router.get("/", async (req, res) => {
+  console.log("made in homeroutes");
   try {
     const userData = await User.findAll({
-      attributes: { exclude: ['password'] },
-      order: [['name', 'ASC']],
+      attributes: { exclude: ["password"] },
+      order: [["name", "ASC"]],
     });
 
     const users = userData.map((project) => project.get({ plain: true }));
 
-    res.render('homepage', {
+    res.render("homepage.handlebars", {
       users,
       logged_in: req.session.logged_in,
     });

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
          
     <title>Login & Registration Form</title> 
-</head>
+</head> --}}
 <body>
     
     <div class="container">
@@ -15,13 +15,14 @@
             <div class="form login">
                 <span class="title">Login</span>
 
-                <form action="#">
+                <form class="login-form" action="#">
                     <div class="input-field">
-                        <input type="text" placeholder="Enter your email">
+                        <input type="text" placeholder="Enter your email" required>
                         <i class="uil uil-envelope icon"></i>
                     </div>
                     <div class="input-field">
-                        <input type="password" class="password" placeholder="Enter your password" required>
+                        <input 
+                        id="login-password" type="password" class="password" placeholder="Enter your password">
                         <i class="uil uil-lock icon"></i>
                         <i class="uil uil-eye-slash showHidePw"></i>
                     </div>
@@ -36,7 +37,7 @@
                     </div>
 
                     <div class="input-field button">
-                        <input type="button" value="Login">
+                        <input type="submit" value="Login">
                     </div>
                 </form>
 
@@ -51,7 +52,7 @@
             <div class="form signup">
                 <span class="title">Registration</span>
 
-                <form action="#">
+                <form class="signup-form" action="#">
                     <div class="input-field">
                         <input type="text" placeholder="Enter your name" required>
                         <i class="uil uil-user"></i>
@@ -91,7 +92,7 @@
         </div>
     </div>
 
-     <script src="script.js"></script> 
+     <script src="/js/login.js"></script> 
 </body>
 </html>
  {{!-- <script>
