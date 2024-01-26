@@ -19,8 +19,12 @@ router.get("/", async (req, res) => {
   let allBook = await Book.findAll();
   //delete text from below
   res.send(allBook);
+
+
 });
 //fun
+
+
 
 // /api/books
 router.post("/", async (req, res) => {

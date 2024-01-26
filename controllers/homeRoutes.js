@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Review, Post } = require("../models");
+const { User, Review, Post, Book } = require("../models");
 const withAuth = require("../utils/auth");
 
 //all gets here
@@ -31,6 +31,23 @@ router.get("/login", (req, res) => {
 
   res.render("login");
 });
+
+// /api/books/library
+router.get("/library", async (req, res)=> {
+
+  console.log('Request for library.')
+      try {  
+        const booksData = await Book.findAll();
+        
+        const books = booksData.map((book) => book.get({ plain: true }));
+        
+        res.render('library', { books });
+      } catch (err) {
+        console.log(err);
+        res.status(500).send('Internal server error');
+      }
+    
+  });
 
 router.get("/dashboard",  withAuth, async (req, res) => {
   // get id of current user from session
