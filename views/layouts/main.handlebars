@@ -47,9 +47,18 @@
                 <div class="container-fluid">
             <div style="float:right"><a href="/login" id="Login">LOGIN</a></div>
             </div>
+            <script>
+    function logoutUser() {
+      localStorage.removeItem('accessToken');
+      window.location.href = 'login';
+    }
+  </script>
+  <button onclick="logoutUser()">Logout</button>
         </div>
     </nav>
     <div style="margin-top: 80px;"> 
+</html>
+
 {{{body}}}
 </div>
 </body>  
