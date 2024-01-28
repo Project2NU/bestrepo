@@ -1,0 +1,17 @@
+<h1>DASHBOARD</h1>
+<h2>Posts by: {{user.name}}</h2>
+
+{{#each user.posts}}
+<ul>
+<li>{{title}}</li>
+<li>{{content}}</li>
+<li>Created On: {{createdAt}} </li>
+</ul>
+{{/each}}
+
+<h2>Reviews of Book</h2>
+{{#each reviews}}
+<h3>{{description}}</h3>
+{{/each}}
+
+

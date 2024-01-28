@@ -15,10 +15,18 @@ router.get("/:bookId", async (req, res) => {
   res.send(JSON.stringify(book));
 });
 
+router.get("/title/:title", async (req, res) => {
+  let book = await Book.findOne({
+    where: { title: req.params.title.trim() },
+  });
+  //get book with this id
+  res.send(JSON.stringify(book));
+});
+
 router.get("/", async (req, res) => {
   let allBook = await Book.findAll();
   //delete text from below
-  res.send(`you are getting all books ${JSON.stringify(allBook)}`);
+  res.send(allBook);
 });
 //fun
 

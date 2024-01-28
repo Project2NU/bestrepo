@@ -23,26 +23,31 @@ const sess = {
     db: sequelize,
   }),
 };
-
 app.use(session(sess));
 // Set Handlebars Middleware
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
+app.use('./public/css/', (req, res, next) => {
+  res.header('Content-Type', 'text/css');
+  next();
+
+
 // Set handlebar routes
-app.get('/', function (req, res) {
-  res.render('homepage');
-  res.render('login');
-  res.render('about');
-});
+// app.get('/', function (req, res) {
+//   res.render('homepage');
+//   res.render('login');
+//   res.render('about');
+// });
 // Set static folder
-app.use(express.static('public'));
+
+});app.use(express.static("public"));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use('/', routes);
+app.use("/", routes);
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log("Now listening"));
+  app.listen(PORT, () => console.log(`App listening at http://localhost:${PORT}`));
 });
-

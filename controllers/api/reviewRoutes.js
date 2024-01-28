@@ -4,17 +4,32 @@ const { User, Book, Review } = require("../../models");
 router.post("/", async (req, res) => {
   console.log("received new review data:", req.body);
   try {
-    // new object combining req.body and the userId from the session
-    const reviewData = {
-      ...req.body,
-      //   userId: req.session.userId,
-    };
+    // see if book already exists.
+    let bookId;
+    const existingBook = await Book.findOne({
+      where: { title: req.body.bookTitle },
+    });
+    // If it does, use that as bookID
+    if (existingBook) {
+      bookId = existingBook.id;
+    } else {
+      // Else, create a new book record
+      const newBook = await Book.create({
+        title: req.body.bookTitle,
+        author: req.body.bookAuthor,
+        synopsis: req.body.bookSynop,
+      });
+      bookId = newBook.id;
+    }
 
-    //  new review with the combined data
-    const newReview = await Review.create(reviewData);
+    const newReview = await Review.create({
+      book_id: bookId,
+      user_id: req.session.userId,
+      description: req.body.reviewText,
+    });
 
-    // Send back a response
-    res.send(`You created a review: ${JSON.stringify(newReview)}`);
+    console.log(newReview);
+    res.json(newReview);
   } catch (error) {
     // Log the error to the console
     console.error("Error occurred: ", error);
