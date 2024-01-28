@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -16,6 +15,9 @@
     <nav>
         <div class="nav-bar">
             <i class='bx bx-menu sidebarOpen' ></i>
+            <a class="navbar-item" href="https://www.instagram.com/patric__star/">
+          <img src="../../logo.png" />
+            </a>
             <span class="logo navLogo"><a href="#">BookComment</a></span>
             <div class="menu">
                 <div class="logo-toggle">
@@ -23,9 +25,9 @@
                     <i class='bx bx-x siderbarClose'></i>
                 </div>
                 <ul class="nav-links">
-                    <li><a href="#">Home</a></li>
+                    <li><a href="http://localhost:3001/">Home</a></li>
                     <li><a href="#">About</a></li>
-                    <li><a href="#">List</a></li>
+                    <li><a href="http://localhost:3001/library">List</a></li>
                     <li><a href="#">Services</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
@@ -46,18 +48,27 @@
                     </div>
                 </div>
                 <div class="container-fluid">
-            <div style="float:right"><a href="/login" id="Login">LOGIN</a></div>
+            <button style="float:right"><a href="/login" id="Login">L;</a></button>
             </div>
+            <script>
+    function logoutUser() {
+      localStorage.removeItem('accessToken');
+      window.location.href = 'login';
+    }
+  </script>
+  <button onclick="logoutUser()">Logout</button>
         </div>
     </nav>
     <div style="margin-top: 80px;"> 
+</html>
+
+
+
+<footer>
+
+</footer>
 {{{body}}}
 </div>
 </body>  
-
-
-
-
-</body>
 </html>
 
