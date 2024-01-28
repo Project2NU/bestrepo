@@ -21,6 +21,29 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/reviews/:book_id", async (req, res) => {
+  try { 
+  const reviewData = await Review.findAll({
+    where: {
+       book_id: req.params.book_id 
+    },
+    include: [Book, User],
+  });
+
+  const reviews = reviewData.map((review) => review.get({ plain: true }));
+  console.log(reviews);
+  
+  const bookData = await Book.findByPk(req.params.book_id)
+
+  const book = bookData.get({plain:true})
+
+    res.status(200).render("reviews", { reviews, book })
+  }
+    catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get("/login", (req, res) => {
   if (req.session.logged_in) {
     res.redirect("/");

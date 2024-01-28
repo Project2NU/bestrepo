@@ -1,0 +1,12 @@
+<h1>Reviews List</h1>
+
+<h2><a href="#">{{book.title}}</a></h2>
+<p><strong>Author:</strong> {{book.author}}</p>
+<p><strong>Synopsis:</strong> {{book.synopsis}}</p>
+
+<div>
+  {{#each reviews as |review| }}
+  <p> {{review.description}}</p>
+  {{/each}}
+</div>
+
