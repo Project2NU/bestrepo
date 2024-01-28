@@ -45,9 +45,12 @@
                     <i class='bx bx-x cancel'></i>
                     <i class='bx bx-search search'></i>
                    </div>
-                    <div class="search-field">
-                        <input type="text" placeholder="Search...">
+                    <form id="book-search-form">
+                        <input type="text" id="book-search-textbox" placeholder="Search...">
                         <i class='bx bx-search'></i>
+                    </form>
+                    <div id="search-results">
+                        
                     </div>
                 </div>
                 <div class="container-fluid">
@@ -76,6 +79,7 @@ document.querySelector('#logout').addEventListener('click', logout);
 
   </script>
 
+<script src="/js/bookSearch.js"></script>
 </html>
 
 {{{body}}}
