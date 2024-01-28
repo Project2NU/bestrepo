@@ -22,24 +22,23 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/reviews/:book_id", async (req, res) => {
-  try { 
-  const reviewData = await Review.findAll({
-    where: {
-       book_id: req.params.book_id 
-    },
-    include: [Book, User],
-  });
+  try {
+    const reviewData = await Review.findAll({
+      where: {
+        book_id: req.params.book_id,
+      },
+      include: [Book, User],
+    });
 
-  const reviews = reviewData.map((review) => review.get({ plain: true }));
-  console.log(reviews);
-  
-  const bookData = await Book.findByPk(req.params.book_id)
+    const reviews = reviewData.map((review) => review.get({ plain: true }));
+    console.log(reviews);
 
-  const book = bookData.get({plain:true})
+    const bookData = await Book.findByPk(req.params.book_id);
 
-    res.status(200).render("reviews", { reviews, book })
-  }
-    catch (err) {
+    const book = bookData.get({ plain: true });
+
+    res.status(200).render("reviews", { reviews, book });
+  } catch (err) {
     res.status(500).json(err);
   }
 });
@@ -106,6 +105,9 @@ router.get("/dashboard", withAuth, async (req, res) => {
     console.log(err);
     res.status(500).json(err);
   }
+});
+router.get("/about", async (req, res) => {
+  res.render("about");
 });
 
 module.exports = router;
