@@ -48,18 +48,31 @@
                     </div>
                 </div>
                 <div class="container-fluid">
-            <button style="float:right"><a href="/login" id="Login">L;</a></button>
+            <a href="/login" id="Login"><button style="float:right">Login</button></a>
             </div>
-            <script>
-    function logoutUser() {
-      localStorage.removeItem('accessToken');
-      window.location.href = 'login';
-    }
-  </script>
-  <button onclick="logoutUser()">Logout</button>
+  <button id ="logout">Logout</button>
         </div>
     </nav>
     <div style="margin-top: 80px;"> 
+            <script>
+const logout = async () => {
+  const response = await fetch('/api/users/logout', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+  });
+
+  if (response.ok) {
+    document.location.replace('/login');
+  } else { 
+    alert(response.statusText);
+  }
+};
+
+document.querySelector('#logout').addEventListener('click', logout);
+
+
+  </script>
+
 </html>
 
 
