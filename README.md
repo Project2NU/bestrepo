@@ -1,20 +1,27 @@
-## Group 2 Project 2 Name Ideas
-Brewed Bibliophiles  
-Literary Libations  
-Ale and Prose  
-Bookish Brewmasters  
-Novel Nectars  
-Beer & Book Brigade  
-Sudsy Stories  
-Quaffable Quotations  
-Hoppy Tales  
-Pint-sized Pages
+## Group 2 Project 2: Lit Library Reviews
 
-![Alt text](image.png)
+
+![Alt text](/public/images/headerimg.png)
 
 ## User Story 
-As a user of the Hoppy Tales Website when I visit the page I can see reviews on Books and suggested Beer pairing with fitting descriptions. Also, I can register as a user of the website to add my own Book reviews and Beer pairings. 
+AS an avid reader and lover of beer, I WANT to read book reviews from others that share the same cross section of interest, SO that I can find good suggestions to expand my reading list, be entertained by witty drunken reviews, and join a community of like minded individuals so that I can leave my own reviews and interact with others. 
+
 
 ## Acceptance Criteria
 
-It is done when we a user can review past reviews and pairings as well as register and add their own reviews/pairings. 
+It's done WHEN GIVEN a vistor to the site, that visitor can view the latest book reviews and pairing suggestions (or the most liked/commented). GIVEN a visitor desires to add their own content, WHEN they click the signup/create an account button/link to join the Library Libations Community, they can register as a reviewer/contributer to add books/reviews and interact with (comment or like/up vote or down vote) reviews from other users. Additionally, they will be able to see all of their own past reviews on their profile page.
+
+### MVP
+
+- A user can see book reviews and post reviews. 
+
+### Todo
+
+- Refine site navigation
+    - Homepage featuring latest reviews
+    - Library & Search 
+        - Reviews by book
+    - User Registration and Login
+    - User Dashboard
+    - About Page
+- Refine site layout and styling 
