@@ -1,10 +1,30 @@
 document
-  .getElementById("reviewForm")
+  .querySelector("#book-title")
+  .addEventListener("blur", async (event) => {
+    console.log("BLUR", event.target.value);
+    const response = await fetch(
+      "/api/books/title/" + event.target.value.trim()
+    );
+    const book = await response.json();
+    if (book) {
+      console.log(book);
+      document.querySelector("#book-author").value = book.author;
+      document.querySelector("#book-synopsis").value = book.synopsis;
+      document.querySelector("#review-text").focus();
+    } else {
+      console.log("BOOK DOESN'T EXIST");
+    }
+  });
+
+document
+  .querySelector(".comment-form")
   .addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    const bookId = document.getElementById("bookSelect").value;
-    const reviewText = document.getElementById("reviewText").value;
+    const bookTitle = document.getElementById("book-title").value;
+    const bookAuthor = document.getElementById("book-author").value;
+    const bookSynop = document.getElementById("book-synopsis").value;
+    const reviewText = document.getElementById("review-text").value;
 
     try {
       const response = await fetch("http://localhost:3001/api/reviews", {
@@ -13,9 +33,10 @@ document
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          book_id: bookId,
-          description: reviewText,
-          // user_id is not included here. it should be set from the session on the server side?
+          bookTitle,
+          bookAuthor,
+          bookSynop,
+          reviewText,
         }),
       });
 
@@ -31,3 +52,46 @@ document
       alert("noo. failed to submit review.");
     }
   });
+
+document
+  .querySelector("#toggle-review")
+  .addEventListener(
+    "click",
+    (event) => (document.querySelector(".comment-box").style.display = "block")
+  );
+const body = document.querySelector("body"),
+  nav = document.querySelector("nav"),
+  modeToggle = document.querySelector(".dark-light"),
+  searchToggle = document.querySelector(".searchToggle"),
+  sidebarOpen = document.querySelector(".sidebarOpen"),
+  siderbarClose = document.querySelector(".siderbarClose");
+
+let getMode = localStorage.getItem("mode");
+if (getMode && getMode === "dark-mode") {
+  body.classList.add("dark");
+}
+modeToggle.addEventListener("click", () => {
+  modeToggle.classList.toggle("active");
+  body.classList.toggle("dark");
+
+  if (!body.classList.contains("dark")) {
+    localStorage.setItem("mode", "light-mode");
+  } else {
+    localStorage.setItem("mode", "dark-mode");
+  }
+});
+searchToggle.addEventListener("click", () => {
+  searchToggle.classList.toggle("active");
+});
+sidebarOpen.addEventListener("click", () => {
+  nav.classList.add("active");
+});
+body.addEventListener("click", (e) => {
+  let clickedElm = e.target;
+  if (
+    !clickedElm.classList.contains("sidebarOpen") &&
+    !clickedElm.classList.contains("menu")
+  ) {
+    nav.classList.remove("active");
+  }
+});
