@@ -30,7 +30,7 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-// /api/books/library
+// /library
 router.get("/library", async (req, res) => {
   console.log("Request for library.");
   try {
@@ -39,6 +39,38 @@ router.get("/library", async (req, res) => {
     const books = booksData.map((book) => book.get({ plain: true }));
 
     res.render("library", { books });
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("Internal server error");
+  }
+});
+
+// /reviews/:book_id
+router.get("/reviews/:book_id", async (req, res) => {
+  console.log("Request for library.");
+  try {
+    const reviewData = await Review.findAll(
+      {
+        include: Book, 
+        where: {
+          book_id: req.params.book_id
+        }
+      }
+    );
+    
+    const review = reviewData.map((review) => review.get({ plain: true }));
+
+    // const bookData = await Book.findByPk(
+    //   {
+    //     where: {
+    //       id: req.params.book_id
+    //     }
+    //   }
+    // )
+
+    // const book = bookData.map((book) => review.get({ plain: true }));
+
+    res.status(200).render("bookreviews", { review });
   } catch (err) {
     console.log(err);
     res.status(500).send("Internal server error");
