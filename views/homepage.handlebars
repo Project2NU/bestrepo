@@ -1,138 +1,92 @@
-<head>
-  <title>Home page</title>
-</head>
+<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 
 
-<header>
-  <nav class="navbar bg-body-tertiary">
-  <div class="container-fluid">
-    <div style="float:right"><a href="/login" id="Login">LOGIN</a></div>
-    <form class="d-flex" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
+<div class="container">
+<button id="toggle-review">Post Review</button>
+
+<div class="comment-box" style="display: none">
+    <p>Post Review</p>
+    <form class="comment-form">
+        <input type="text" placeholder="Name">
+        <input type="text" placeholder="Date">
+        <input type="text" placeholder="Time">
+        <textarea rows="10" placeholder="Write Your Comment"></textarea>
+        <button type="submit">Post Comment</button>
     </form>
-  </div>
-</nav>
-
-<style>
-{
-  font-family: "Poppins", sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  list-style: none;
-  text-decoration: none;
-}
-
-.body {
-  background: white
-}
-
-:root {
-  --gradient: linear-gradient(to right, #e2336b, #fcac46);
-}
-.sidebar {
-  position: fixed;
-  width: 300px;
-  height: 100vh;
-  background: #f8f8f8;
-  padding: 20px;
-}
-.main-home {
-  position: absolute;
-  width: calc(100%-300px);
-  min-height: 100vh;
-  top: 0;
-  left: 300px;
-  background: #fff;
-  border-radius: 1rem 0 0 1rem;
-  z-index: 1000;
-}
-
-.logo img{
-  width: 140px;
-}
-.profile {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 1.4rem;
-}
-.profile-img img{
-  width: 70px;
-  height: 70px;
-  object-fit: cover;
-  border-radius: 50%;
-  object-position: center;
-}
-.name{
-  display: flex;
-  align-items: center;
-  margin: 1rem 0 0.4rem
-}
-
-.name h1{
-  font-size: 1.1rem;
-}
-
-.name img{
-  margin-left: 4px;
-  width: 20px;
-  object-fit: contain;
-}
-
-.profile-img span{
-  font-size: 0.938rem;
-  font-weight: 400;
-}
-
-.about{
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1rem;
-}
-
-.box {
-  text-align: center;
-}
-
-.box h3 {
-  font-size: 1rem;
-  font-weight: 500;
-}
-.box span{
-  font-size: 0.938rem;
-  font-weight: 400;
-}
-
-.menu a {
-  width: 100%;
-  font-size: 1rem;
-  color: black;
-  display: flex;
-  align-items: center;
-  line-height: 40px;
-}
-
-
-
-
-</style>
-
-
-
-<body>
-  <center>
-  <h1> This is our Handlebars Homepage...</h1>
-
-    <div style="float:right"><button id="logout">logout</button></div>
-
+</div>
+<div class="row">
+    <div class="col-md-8">
+        <div class="media g-mb-30 media-comment">
+            <div class="media-body u-shadow-v18 g-bg-secondary g-pa-30">
+              <div class="g-mb-15">
+                <h5 class="h5 g-color-gray-dark-v1 mb-0">John Doe</h5>
+                <span class="g-color-gray-dark-v4 g-font-size-12">5 days ago</span>
+              </div>
+        
+              <p>example post: rap battle of history books part 1: Yo, check the pages, flip the script, let me take you on a trip,
+                Through the annals of time, where the past starts to grip.
+                History books, they're the keys to unlock,
+                The stories of our ancestors, the wisdom in stock.</p>
+        
+              <ul class="list-inline d-sm-flex my-0">
+                <li class="list-inline-item g-mr-20">
+                  <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+                    <i class="fa fa-thumbs-up g-pos-rel g-top-1 g-mr-3"></i>
+                    178
+                  </a>
+                </li>
+                <li class="list-inline-item g-mr-20">
+                  <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+                    <i class="fa fa-thumbs-down g-pos-rel g-top-1 g-mr-3"></i>
+                    34
+                  </a>
+                </li>
+                <li class="list-inline-item ml-auto">
+                  <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+                    <i class="fa fa-reply g-pos-rel g-top-1 g-mr-3"></i>
+                    Reply
+                  </a>
+                </li>
+              </ul>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="main-home"></div>
-  
-</body>
+
+    <div class="col-md-8">
+        <div class="media g-mb-30 media-comment">
+            <div class="media-body u-shadow-v18 g-bg-secondary g-pa-30">
+              <div class="g-mb-15">
+                <h5 class="h5 g-color-gray-dark-v1 mb-0">John Foe</h5>
+                <span class="g-color-gray-dark-v4 g-font-size-12">5 days ago</span>
+              </div>
+        
+              <p>example post 2, "The Great Gatsby" is a novel written by F. Scott Fitzgerald, published in 1925. Set in the summer of 1922, the story takes place in the fictional towns of West Egg and East Egg on Long Island, New York, during the Jazz Age, a time of economic prosperity and cultural upheaval in America.Here's an overview of the novel: The protagonist, Nick Carraway, moves to West Egg, a wealthy neighborhood, to pursue a career in the bond business....</p>
+        
+              <ul class="list-inline d-sm-flex my-0">
+                <li class="list-inline-item g-mr-20">
+                  <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+                    <i class="fa fa-thumbs-up g-pos-rel g-top-1 g-mr-3"></i>
+                    178
+                  </a>
+                </li>
+                <li class="list-inline-item g-mr-20">
+                  <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+                    <i class="fa fa-thumbs-down g-pos-rel g-top-1 g-mr-3"></i>
+                    34
+                  </a>
+                </li>
+                <li class="list-inline-item ml-auto">
+                  <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+                    <i class="fa fa-reply g-pos-rel g-top-1 g-mr-3"></i>
+                    Reply
+                  </a>
+                </li>
+              </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
 <script src="js/review.js"></script>
