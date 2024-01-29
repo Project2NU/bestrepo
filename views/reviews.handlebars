@@ -1,0 +1,89 @@
+<h1>Reviews List</h1>
+<div id="book-container">
+  <img
+  
+    id="bookImg"
+    src=""
+    alt="Thumbnail of bookcover for {{book.title}}"
+    style="height: 20vh"
+  />
+  <div class="book-div">
+    <h2><p
+        id="title"
+        style="font-weight: bold; text-decoration: underline;"
+      >{{book.title}}</p></h2>
+    <p><strong>Author:</strong> {{book.author}}</p>
+    <p><strong>Synopsis:</strong> {{book.synopsis}}</p>
+  </div>
+</div>
+
+<button id="toggle-review">Post Review</button>
+<div class="comment-box" style="display: none">
+  <p>Post Book Review</p>
+  <form class="comment-form">
+    <input id="book-title" type="text" value="{{book.title}}" readonly />
+    <input id="book-author" type="text" value="{{book.author}}" readonly />
+    <textarea id="book-synopsis" rows="5" readonly>{{book.synopsis}}</textarea>
+    <textarea
+      id="review-text"
+      rows="10"
+      placeholder="Write Your Review Here!"
+    ></textarea>
+
+    <button type="submit">Post Review</button>
+  </form>
+</div>
+
+{{#each reviews}}
+  <div class="row">
+    <div class="col-md-8">
+      <div class="media g-mb-30 media-comment">
+        <div class="media-body u-shadow-v18 g-bg-secondary g-pa-30">
+          <div class="g-mb-15">
+            <h5 class="h5 g-color-gray-dark-v1 mb-0">{{book.title}}
+              reviewed by
+              {{user.name}}</h5>
+            <span class="g-color-gray-dark-v4 g-font-size-12">{{format_time
+                created_at
+              }}</span>
+          </div>
+
+          <p>{{description}}</p>
+
+          <ul class="list-inline d-sm-flex my-0">
+            <li class="list-inline-item g-mr-20">
+              <a
+                class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover"
+                href="#!"
+              >
+                <i class="fa fa-thumbs-up g-pos-rel g-top-1 g-mr-3"></i>
+                178
+              </a>
+            </li>
+            <li class="list-inline-item g-mr-20">
+              <a
+                class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover"
+                href="#!"
+              >
+                <i class="fa fa-thumbs-down g-pos-rel g-top-1 g-mr-3"></i>
+                34
+              </a>
+            </li>
+            <li class="list-inline-item ml-auto">
+              <a
+                class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover"
+                href="#!"
+              >
+                <i class="fa fa-reply g-pos-rel g-top-1 g-mr-3"></i>
+                Reply
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+{{/each}}
+
+<script src="/js/reviewSelectedBook.js"></script>

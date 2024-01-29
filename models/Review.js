@@ -1,5 +1,6 @@
-const { Model, DataTypes } = require("sequelize");
+const { Model, DataTypes, Sequelize } = require("sequelize");
 const sequelize = require("../config/connection");
+const moment = require('moment')
 
 class Review extends Model {}
 
@@ -31,6 +32,11 @@ Review.init(
     description: {
       type: DataTypes.TEXT,
       allowNull: false,
+    },
+    created_at:{
+      type:DataTypes.DATEONLY,
+      allowNull: false,
+      defaultValue: moment(new Date()).format('MMMM Do YYYY'),
     },
   },
   {
