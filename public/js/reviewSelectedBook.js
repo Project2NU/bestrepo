@@ -1,3 +1,4 @@
+console.log('Script connected');
 document
   .querySelector("#book-title")
   .addEventListener("blur", async (event) => {
@@ -45,55 +46,22 @@ document
       }
 
       const result = await response.json();
-      console.log(result);
-      alert("sick review submission success!");
+      console.log("Review Submitted");
+      location.reload();
     } catch (error) {
       console.error("Failed to submit review:", error);
       alert("noo. failed to submit review.");
     }
   });
 
-document
-  .querySelector("#toggle-review")
-  .addEventListener(
-    "click",
-    (event) => (document.querySelector(".comment-box").style.display = "block")
-  );
-
-  
-const body = document.querySelector("body"),
-  nav = document.querySelector("nav"),
-  modeToggle = document.querySelector(".dark-light"),
-  searchToggle = document.querySelector(".searchToggle"),
-  sidebarOpen = document.querySelector(".sidebarOpen"),
-  siderbarClose = document.querySelector(".siderbarClose");
-
-let getMode = localStorage.getItem("mode");
-if (getMode && getMode === "dark-mode") {
-  body.classList.add("dark");
-}
-modeToggle.addEventListener("click", () => {
-  modeToggle.classList.toggle("active");
-  body.classList.toggle("dark");
-
-  if (!body.classList.contains("dark")) {
-    localStorage.setItem("mode", "light-mode");
-  } else {
-    localStorage.setItem("mode", "dark-mode");
-  }
-});
-searchToggle.addEventListener("click", () => {
-  searchToggle.classList.toggle("active");
-});
-sidebarOpen.addEventListener("click", () => {
-  nav.classList.add("active");
-});
-body.addEventListener("click", (e) => {
-  let clickedElm = e.target;
-  if (
-    !clickedElm.classList.contains("sidebarOpen") &&
-    !clickedElm.classList.contains("menu")
-  ) {
-    nav.classList.remove("active");
-  }
-});
+document.querySelector("#toggle-review").addEventListener("click", (event) => {
+ 
+        let commentBox = document.querySelector(".comment-box")
+        
+        if (commentBox.style.display == "block"){
+            commentBox.style.display = "none";
+        } else {
+            commentBox.style.display = "block"
+        } 
+        
+  });
