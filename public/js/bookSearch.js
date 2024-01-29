@@ -1,8 +1,11 @@
+// matches the id of the form containing the input tag
 const form = document.getElementById("book-search-form");
 
 form.addEventListener("submit", function (event) {
   event.preventDefault();
+  // get value from the textbox
   const searchQuery = document.getElementById("book-search-textbox").value;
+  // figure out where to put this <div id = "search-results" on the page
   const resultsContainer = document.getElementById("search-results");
 
   fetch(
@@ -17,6 +20,7 @@ form.addEventListener("submit", function (event) {
 
       if (data.docs && data.docs.length > 0) {
         for (const book of data.docs) {
+          // figure out how to style each in the html
           const bookElement = document.createElement("div");
           bookElement.className = "book-item";
 
