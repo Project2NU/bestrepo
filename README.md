@@ -19,9 +19,17 @@ It's done WHEN GIVEN a vistor to the site, that visitor can view the latest book
 
 - Refine site navigation
     - Homepage featuring latest reviews
-    - Library & Search 
-        - Reviews by book
+    - Library Reviews by book
+    - Search by Title
     - User Registration and Login
     - User Dashboard
     - About Page
 - Refine site layout and styling 
+
+### Future Functionality
+
+- Add beer Pairings
+- Add likes
+- Add replies to Reviews
+- Add notificatons for user interactivity (i.e. replies to reviews)
+- Add book rating scale (call it "Dog Ears")
