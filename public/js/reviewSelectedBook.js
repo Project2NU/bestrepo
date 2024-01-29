@@ -17,6 +17,28 @@ document
     }
   });
 
+  const apiTitle = document.getElementById("title").textContent;
+  console.log(apiTitle);
+  const bookImage = document.getElementById('bookImg');
+  let apiUrl = `https://www.googleapis.com/books/v1/volumes?q=${apiTitle}`
+  
+  fetch(apiUrl)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Network response was not ok: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      // Process the data returned by the API
+      console.log(data); // This will log the book data to the console
+      const imageUrl = data.items[0].volumeInfo.imageLinks.thumbnail
+      bookImage.setAttribute("src", imageUrl);
+    })
+    .catch((error) => {
+      console.error('There was a problem with the fetch operation:', error);
+    });
+
 document
   .querySelector(".comment-form")
   .addEventListener("submit", async (event) => {
