@@ -46,8 +46,7 @@ document
 
       const result = await response.json();
       console.log(result);
-      alert("sick review submission success!");
-    } catch (error) {
+      } catch (error) {
       console.error("Failed to submit review:", error);
       alert("noo. failed to submit review.");
     }
@@ -57,8 +56,16 @@ document
   .querySelector("#toggle-review")
   .addEventListener(
     "click",
-    (event) => (document.querySelector(".comment-box").style.display = "block")
-  );
+    (event) => {
+ 
+      let commentBox = document.querySelector(".comment-box")
+      
+      if (commentBox.style.display == "block"){
+          commentBox.style.display = "none";
+      } else {
+          commentBox.style.display = "block"
+      } 
+    });
 
   
 const body = document.querySelector("body"),
