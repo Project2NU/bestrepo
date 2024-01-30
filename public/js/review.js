@@ -27,7 +27,7 @@ document
     const reviewText = document.getElementById("review-text").value;
 
     try {
-      const response = await fetch("http://localhost:3001/api/reviews", {
+      const response = await fetch("/api/reviews", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
