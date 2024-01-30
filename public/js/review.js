@@ -45,6 +45,7 @@ document
       }
 
       const result = await response.json();
+      location.reload();
       console.log(result);
       } catch (error) {
       console.error("Failed to submit review:", error);
