@@ -90,9 +90,9 @@ modeToggle.addEventListener("click", () => {
     localStorage.setItem("mode", "dark-mode");
   }
 });
-searchToggle.addEventListener("click", () => {
-  searchToggle.classList.toggle("active");
-});
+// searchToggle.addEventListener("click", () => {
+//   searchToggle.classList.toggle("active");
+// });
 sidebarOpen.addEventListener("click", () => {
   nav.classList.add("active");
 });
