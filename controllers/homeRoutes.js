@@ -9,12 +9,15 @@ router.get("/", async (req, res) => {
   const dbReviews = await Review.findAll({
     include: [Book, User],
   });
+  
   const reviews = dbReviews.map((review) => review.get({ plain: true }));
   console.log(reviews);
+  const sortedReviews = reviews.sort((a, b)=> b.created_at - a.created_at)
+
   try {
     res.render("homepage.handlebars", {
       logged_in: req.session.logged_in,
-      reviews,
+      sortedReviews,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -32,12 +35,14 @@ router.get("/reviews/:book_id", async (req, res) => {
 
     const reviews = reviewData.map((review) => review.get({ plain: true }));
     console.log(reviews);
+    const sortedReviews = reviews.sort((a, b)=> b.created_at - a.created_at)
 
     const bookData = await Book.findByPk(req.params.book_id);
 
     const book = bookData.get({ plain: true });
 
-    res.status(200).render("reviews", { reviews, book });
+    res.status(200).render("reviews", {
+      logged_in: req.session.logged_in, sortedReviews, book });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -60,7 +65,8 @@ router.get("/library", async (req, res) => {
 
     const books = booksData.map((book) => book.get({ plain: true }));
 
-    res.render("library", { books });
+    res.render("library", {
+      logged_in: req.session.logged_in, books });
   } catch (err) {
     console.log(err);
     res.status(500).send("Internal server error");
@@ -107,7 +113,8 @@ router.get("/dashboard", withAuth, async (req, res) => {
   }
 });
 router.get("/about", async (req, res) => {
-  res.render("about");
+  res.render("about", {
+    logged_in: req.session.logged_in,});
 });
 
 module.exports = router;
