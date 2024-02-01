@@ -57,6 +57,16 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
+router.get("/signup", (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect("/");
+    return;
+  }
+
+  res.render("signup");
+});
+
+
 // /api/books/library
 router.get("/library", async (req, res) => {
   console.log("Request for library.");
