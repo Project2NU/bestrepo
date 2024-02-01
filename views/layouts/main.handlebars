@@ -65,8 +65,14 @@
                     <i class='bx bx-search search'></i>
                    </div>
                     <div class="search-field">
-                        <input type="text" placeholder="Search...">
+                        <form id="book-search-form">
+                            <input type="text" id="book-search-textbox" placeholder="Search...">
+                        </form>
+                        <!-- there's a bit of weirdness here with the styling of the textbox -->
                         <i class='bx bx-search'></i>
+                    </div>
+                    <div id="search-results">
+                        
                     </div>
                 </div>
                 <div class="container-fluid">
@@ -147,6 +153,7 @@
 
   </body>
 
+<script src="/js/bookSearch.js"></script>
 </html>
 
 <script>
