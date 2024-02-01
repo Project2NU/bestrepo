@@ -2,12 +2,12 @@
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface, Sequelize) {
-    // await queryInterface.addColumn('review', 'createdOn', {
-    //   type:Sequelize.DATEONLY,
-    //   allowNull: true,
-    //   defaultValue: new Date(),
-    // });
+  // async up (queryInterface, Sequelize) {
+  //   await queryInterface.addColumn('review', 'createdOn', {
+  //     type:Sequelize.DATEONLY,
+  //     allowNull: true,
+  //     defaultValue: new Date(),
+  //   // });
     /**
      * Add altering commands here.
      *
